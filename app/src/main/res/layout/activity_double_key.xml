@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_color_main"
+    tools:context=".ui.activities.DoubleKeyActivity">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/image_background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/ll_piano_view3"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <com.gambisoft.pianolibrary.PianoView
+                android:id="@+id/piano_view3"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:rotation="180"
+                tools:ignore="NestedWeights" />
+
+            <androidx.appcompat.widget.AppCompatSeekBar
+                android:id="@+id/seekbar_scroll3"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_20sdp"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="@dimen/_70sdp"
+                android:layout_marginTop="@dimen/_3sdp"
+                android:background="@mipmap/piano_bar_1"
+                android:progressDrawable="@null"
+                android:rotation="180"
+                android:thumb="@drawable/seekbar_thumb" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_button_center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingHorizontal="@dimen/_9sdp"
+            android:visibility="visible">
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/btn_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_click"
+                android:contentDescription="@string/back"
+                android:src="@drawable/ic_back" />
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/btn_change_theme"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_click"
+                android:src="@drawable/ic_theme" />
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/btn_show_key"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_click"
+                android:src="@drawable/ic_show_key" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/btn_record"
+                android:layout_width="@dimen/_90sdp"
+                android:layout_height="match_parent"
+                android:background="@drawable/bg_button_un_click_rectangle"
+                android:clickable="true"
+                android:drawableStart="@drawable/ic_rec_un_rec"
+                android:drawablePadding="@dimen/_5sdp"
+                android:focusable="true"
+                android:fontFamily="@font/sen_bold"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="@dimen/_20sdp"
+                android:text="@string/_rec"
+                android:textColor="@color/text_hidden"
+                android:textSize="14sp" />
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/btn_zoom_minus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_click"
+                android:src="@drawable/ic_zoom_minus" />
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/btn_zoom_plus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_click"
+                android:src="@drawable/ic_zoom_plus" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:visibility="invisible" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/btn_double_key"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@drawable/bg_button_click_rectangle"
+                android:clickable="true"
+                android:drawableStart="@drawable/ic_double_key"
+                android:drawablePadding="@dimen/_5sdp"
+                android:focusable="true"
+                android:fontFamily="@font/sen_bold"
+                android:gravity="center"
+                android:paddingHorizontal="@dimen/_20sdp"
+                android:text="@string/_x2"
+                android:textColor="@color/white"
+                android:textSize="14sp" />
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/btn_two_player"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_button_click_circle"
+                android:src="@drawable/ic_two_player" />
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/btn_settings_piano"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_click"
+                android:src="@drawable/icon_setting_piano" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_piano_view1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <androidx.appcompat.widget.AppCompatSeekBar
+                android:id="@+id/seekbar_scroll1"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_20sdp"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="@dimen/_70sdp"
+                android:background="@mipmap/piano_bar_1"
+                android:padding="0dp"
+                android:progressDrawable="@null"
+                android:thumb="@drawable/seekbar_thumb" />
+
+            <com.gambisoft.pianolibrary.PianoView
+                android:id="@+id/piano_view1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="@dimen/_13sdp"
+                android:layout_marginTop="@dimen/_3sdp"
+                app:layoutKey="1"
+                app:showKeyName="true" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_piano_view2"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/_3sdp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:visibility="visible">
+
+            <androidx.appcompat.widget.AppCompatSeekBar
+                android:id="@+id/seekbar_scroll2"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_20sdp"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="@dimen/_70sdp"
+                android:background="@mipmap/piano_bar_1"
+                android:padding="0dp"
+                android:progressDrawable="@null"
+                android:thumb="@drawable/seekbar_thumb" />
+
+            <com.gambisoft.pianolibrary.PianoView
+                android:id="@+id/piano_view2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="@dimen/_13sdp"
+                android:layout_marginTop="@dimen/_3sdp"
+                app:layoutKey="1"
+                app:showKeyName="true" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+</RelativeLayout>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/none"
+    android:paddingHorizontal="@dimen/_20sdp">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/image"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:adjustViewBounds="true"
+        android:background="@drawable/bg_border_white_r10"
+        android:scaleType="fitCenter"
+        android:src="@mipmap/theme_basic"
+        app:shapeAppearanceOverlay="@style/rounded_corner_r10" />
+
+</RelativeLayout>

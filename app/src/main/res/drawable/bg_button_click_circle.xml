@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="oval">
+            <gradient
+                android:centerColor="#1AFFFFFF"
+                android:centerX="50%"
+                android:centerY="50%"
+                android:endColor="@color/none"
+                android:gradientRadius="50%"
+                android:startColor="#80FFFFFF"
+                android:type="radial"
+                android:useLevel="false" />
+        </shape>
+    </item>
+    <item
+        android:bottom="@dimen/_7sdp"
+        android:left="@dimen/_7sdp"
+        android:right="@dimen/_7sdp"
+        android:top="@dimen/_7sdp">
+        <shape android:shape="oval">
+            <solid android:color="@color/bg_button" />
+            <size
+                android:width="@dimen/_30sdp"
+                android:height="@dimen/_30sdp" />
+        </shape>
+    </item>
+
+    <item
+        android:bottom="@dimen/_11sdp"
+        android:left="@dimen/_11sdp"
+        android:right="@dimen/_11sdp"
+        android:top="@dimen/_11sdp">
+        <shape android:shape="oval">
+            <gradient
+                android:centerX="50%"
+                android:centerY="50%"
+                android:endColor="@color/bg_button_click_1"
+                android:gradientRadius="50%"
+                android:startColor="@color/bg_button_click_2"
+                android:type="radial"
+                android:useLevel="false" />
+        </shape>
+    </item>
+</layer-list>

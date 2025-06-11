@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="PianoView">
+        <attr name="showKeyName" format="boolean" />
+        <attr name="layoutKey" format="integer">
+            <enum name="Basic" value="0" />
+            <enum name="Noel" value="1" />
+            <enum name="Anime" value="2" />
+        </attr>
+        <attr name="scaleWidth" format="float" />
+    </declare-styleable>
+</resources>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_favourite"
+    android:orientation="vertical"
+    tools:context=".ui.activities.GenreMusicActivity">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_12sdp"
+        android:layout_marginTop="@dimen/_25sdp"
+        android:fontFamily="@font/sen_bold"
+        android:text="@string/genre_music"
+        android:textColor="@color/black_1A1C20"
+        android:textSize="22sp" />
+
+    <com.gambisoft.gpiano.customView.FlowLayout
+        android:id="@+id/layout_favorite"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:gravity="center_horizontal"
+        app:flChildSpacing="@dimen/_10sdp"
+        app:flFlow="true"
+        app:flRowSpacing="@dimen/_10sdp" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/btn_next"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_50sdp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:background="@drawable/bg_button_deep_purple"
+        android:clickable="true"
+        android:focusable="true"
+        android:fontFamily="@font/sen_medium"
+        android:gravity="center"
+        android:paddingVertical="@dimen/_12sdp"
+        android:text="@string/next"
+        android:textColor="@color/white"
+        android:textSize="16sp" />
+</LinearLayout>

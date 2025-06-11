@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_color_main"
+    tools:context=".ui.activities.DrumActivity">
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/btn_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_15sdp"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:background="@drawable/button_click"
+        android:contentDescription="@string/back"
+        android:src="@drawable/ic_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/btn_change_theme"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_marginEnd="@dimen/_15sdp"
+        android:background="@drawable/button_click"
+        android:contentDescription="@string/back"
+        android:src="@drawable/ic_theme"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/drum_crash1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/none"
+        android:src="@mipmap/drum_crash2"
+        app:layout_constraintEnd_toStartOf="@id/drum_crash2"
+        app:layout_constraintTop_toTopOf="@id/drum_crash2" />
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/drum_hh_open"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_50sdp"
+        android:layout_marginEnd="-30dp"
+        android:background="@color/none"
+        android:src="@mipmap/drum_hihat_open"
+        app:layout_constraintEnd_toStartOf="@id/drum_crash1"
+        app:layout_constraintTop_toTopOf="@id/drum_crash2" />
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/drum_crash2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-10dp"
+        android:background="@color/none"
+        android:src="@mipmap/drum_crash1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/drum_crash3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/none"
+        android:src="@mipmap/drum_crash2"
+        app:layout_constraintStart_toEndOf="@id/drum_crash2"
+        app:layout_constraintTop_toTopOf="@id/drum_crash2" />
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/drum_ride"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="-40dp"
+        android:layout_marginTop="@dimen/_50sdp"
+        android:background="@color/none"
+        android:src="@mipmap/drum_ride"
+        app:layout_constraintStart_toEndOf="@id/drum_crash3"
+        app:layout_constraintTop_toTopOf="@id/drum_crash2" />
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/drum_tom_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:background="@color/none"
+        android:src="@mipmap/drum_tom"
+        app:layout_constraintEnd_toStartOf="@id/drum_tom_2"
+        app:layout_constraintTop_toTopOf="@id/drum_tom_2" />
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/drum_tom_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:background="@color/none"
+        android:src="@mipmap/drum_tom"
+        app:layout_constraintEnd_toEndOf="@id/drum_crash2"
+        app:layout_constraintStart_toStartOf="@id/drum_crash2"
+        app:layout_constraintTop_toBottomOf="@id/drum_crash2" />
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/drum_tom_3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:background="@color/none"
+        android:src="@mipmap/drum_tom"
+        app:layout_constraintStart_toEndOf="@id/drum_tom_2"
+        app:layout_constraintTop_toTopOf="@id/drum_tom_2" />
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/drum_snare"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/none"
+        android:src="@mipmap/drum_snare"
+        app:layout_constraintEnd_toEndOf="@id/drum_crash2"
+        app:layout_constraintStart_toStartOf="@id/drum_crash2"
+        app:layout_constraintTop_toBottomOf="@id/drum_tom_2" />
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/drum_bass_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:background="@color/none"
+        android:src="@mipmap/drum_bass"
+        app:layout_constraintEnd_toStartOf="@id/drum_snare"
+        app:layout_constraintTop_toTopOf="@id/drum_snare" />
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/drum_bass_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:background="@color/none"
+        android:src="@mipmap/drum_bass"
+        app:layout_constraintStart_toEndOf="@id/drum_snare"
+        app:layout_constraintTop_toTopOf="@id/drum_snare" />
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/drum_block"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:background="@color/none"
+        android:src="@mipmap/drum_block"
+        app:layout_constraintEnd_toStartOf="@id/drum_pedal"
+        app:layout_constraintTop_toBottomOf="@id/drum_hh_open" />
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/drum_pedal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:background="@color/none"
+        android:src="@mipmap/drum_hihat_pedal"
+        app:layout_constraintEnd_toStartOf="@id/drum_tom_1"
+        app:layout_constraintTop_toBottomOf="@id/drum_hh_open" />
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/drum_tambourine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:background="@color/none"
+        android:src="@mipmap/drum_tambourine"
+        app:layout_constraintBottom_toBottomOf="@id/drum_bass_2"
+        app:layout_constraintStart_toEndOf="@id/drum_bass_2" />
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/drum_bell"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="-30dp"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:layout_marginBottom="@dimen/_50sdp"
+        android:background="@color/none"
+        android:src="@mipmap/drum_bell"
+        app:layout_constraintBottom_toBottomOf="@id/drum_tambourine"
+        app:layout_constraintStart_toEndOf="@id/drum_tambourine" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

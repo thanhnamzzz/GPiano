@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="circle_corner">
+        <item name="cornerSize">50%</item>
+    </style>
+
+    <style name="rounded_corner_r10">
+        <item name="cornerSize">@dimen/_10sdp</item>
+    </style>
+
+    <style name="rounded_corner_r30">
+        <item name="cornerSize">@dimen/_30sdp</item>
+    </style>
+
+    <style name="rounded_corner_r5">
+        <item name="cornerSize">@dimen/_5sdp</item>
+    </style>
+
+    <style name="rounded_top_r15">
+        <item name="cornerSizeTopLeft">@dimen/_15sdp</item>
+        <item name="cornerSizeTopRight">@dimen/_15sdp</item>
+    </style>
+
+    <style name="rounded_tr_bl_r15">
+        <item name="cornerSizeBottomLeft">@dimen/_15sdp</item>
+        <item name="cornerSizeTopRight">@dimen/_15sdp</item>
+    </style>
+
+    <style name="ItemMenuAnimation">
+        <item name="android:windowEnterAnimation">@anim/item_menu_enter</item>
+        <item name="android:windowExitAnimation">@anim/item_menu_exit</item>
+    </style>
+</resources>

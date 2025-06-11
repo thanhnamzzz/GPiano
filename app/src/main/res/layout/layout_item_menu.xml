@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_item_menu"
+    android:orientation="vertical"
+    android:paddingVertical="@dimen/_6sdp">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/btn_rename"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_3sdp"
+        android:background="@drawable/bg_black_rec"
+        android:clickable="true"
+        android:drawableStart="@drawable/icon_rename"
+        android:drawablePadding="@dimen/_8sdp"
+        android:focusable="true"
+        android:fontFamily="@font/sen_medium"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="@dimen/_18sdp"
+        android:paddingVertical="@dimen/_7sdp"
+        android:text="@string/rename"
+        android:textColor="@color/white"
+        android:textSize="14sp" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/btn_delete"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_3sdp"
+        android:background="@drawable/bg_black_rec"
+        android:clickable="true"
+        android:drawableStart="@drawable/icon_delete"
+        android:drawablePadding="@dimen/_8sdp"
+        android:focusable="true"
+        android:fontFamily="@font/sen_medium"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="@dimen/_18sdp"
+        android:paddingVertical="@dimen/_7sdp"
+        android:text="@string/delete"
+        android:textColor="@color/white"
+        android:textSize="14sp" />
+
+</LinearLayout>

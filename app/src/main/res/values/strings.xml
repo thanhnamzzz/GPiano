@@ -1,0 +1,78 @@
+<resources>
+    <string name="app_name">GPiano</string>
+
+
+    <string name="english" translatable="false">English</string>
+    <string name="vietnamese" translatable="false">Việt Nam</string>
+    <string name="french" translatable="false">Français</string>
+    <string name="japanese" translatable="false">日本語</string>
+    <string name="german" translatable="false">Deutsch</string>
+    <string name="korean" translatable="false">한국인</string>
+    <string name="russian" translatable="false">Русский</string>
+    <string name="thai" translatable="false">แบบไทย</string>
+    <string name="indonesian" translatable="false">Bahasa Indonesia</string>
+    <string name="italian" translatable="false">Italiano</string>
+    <string name="bulgarian" translatable="false">Български</string>
+    <string name="czech" translatable="false">Čeština</string>
+    <string name="danish" translatable="false">Dansk</string>
+    <string name="spanish" translatable="false">Español</string>
+    <string name="hungarian" translatable="false">Magyar</string>
+    <string name="hindi" translatable="false">हिंदी</string>
+    <string name="icelandic" translatable="false">Íslenskur</string>
+    <string name="nepali" translatable="false">नेपाली</string>
+    <string name="serbian" translatable="false">Српски</string>
+    <string name="ukrainian" translatable="false">Українська</string>
+    <string name="dutch" translatable="false">Nederlands</string>
+    <string name="greek" translatable="false">Ελληνικά</string>
+    <string name="finnish" translatable="false">Suomalainen</string>
+    <string name="khmer" translatable="false">ខ្មែរ</string>
+    <string name="lao" translatable="false">ພາສາລາວ</string>
+    <string name="norwegian" translatable="false">Norsk</string>
+    <string name="portuguese" translatable="false">Português</string>
+    <string name="swedish" translatable="false">Svenska</string>
+    <string name="welsh" translatable="false">Cymraeg</string>
+
+
+    <string name="piano">Piano</string>
+    <string name="text_piano_home">Learn to play Piano with easy to follow tutorials</string>
+    <string name="drum">Drum</string>
+    <string name="text_drum_home">Learn to play Drum with easy to follow tutorials</string>
+    <string name="back">Back</string>
+    <string name="_x2" translatable="false">X2</string>
+    <string name="_rec" translatable="false">REC</string>
+    <string name="_00_00" translatable="false">00:00</string>
+    <string name="save_record">Save Record</string>
+    <string name="message_save_record">Do you want to save this record?</string>
+    <string name="cancel">Cancel</string>
+    <string name="save">Save</string>
+    <string name="file_name">File name</string>
+    <string name="no_data_record">You don’t have any keys record files yet!</string>
+    <string name="open_piano">Open Piano</string>
+    <string name="music_list">Music list</string>
+    <string name="record_list">Record list</string>
+    <string name="play_in_piano">Play in Piano</string>
+    <string name="rename">Rename</string>
+    <string name="delete">Delete</string>
+    <string name="please_enter_name">Please enter name</string>
+    <string name="settings">Settings</string>
+    <string name="general">General</string>
+    <string name="language">Language</string>
+    <string name="mail">Mail</string>
+    <string name="share_this_app">Share this app</string>
+    <string name="feedback">Feedback</string>
+    <string name="privacy_policy">Privacy Policy</string>
+    <string name="loading" translatable="false">Loading…</string>
+    <string name="_may_shows_ads" translatable="false">This action may shows ads</string>
+    <string name="skip">Skip</string>
+    <string name="next">Next</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="_mess_intro_1" translatable="false">Learn Piano fast anytime, anywhere</string>
+    <string name="_mess_intro_2" translatable="false">Single or Dual??</string>
+    <string name="_mess_intro_3" translatable="false">Musical instruments suitable for all ages</string>
+    <string name="theme">Theme</string>
+    <string name="welcome_to">Welcome to</string>
+    <string name="get_started">Get started</string>
+    <string name="favorite_piano_ui">Favorite piano UI</string>
+    <string name="genre_music">Which genre of music do you like to play on the piano?</string>
+    <string name="select">Select</string>
+</resources>
