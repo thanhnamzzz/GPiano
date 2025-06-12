@@ -26,7 +26,7 @@ class ThemePianoActivity :
 	private lateinit var themeAdapter: ThemePianoAdapter
 	private val statePianoKey: StatePianoKeyManager
 		get() = StatePianoKeyManager(this)
-	private var layoutSelect = PianoLayout.Basic
+	private var layoutSelect = PianoLayout.Default
 	override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)
 
@@ -57,7 +57,7 @@ class ThemePianoActivity :
 							binding.tvTitle.setTextColor(
 								ContextCompat.getColor(this@ThemePianoActivity, R.color.white)
 							)
-							layoutSelect = PianoLayout.Basic
+							layoutSelect = PianoLayout.Default
 						}
 
 						1 -> {

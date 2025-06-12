@@ -294,15 +294,30 @@ class DoubleKeyActivity :
 		inView()
 
 		when (statePianoKey.getLayoutPianoKey()) {
-			PianoLayout.Basic -> loadImage(binding.imageBackground, R.color.none)
-			PianoLayout.Noel -> loadImage(
+			PianoLayout.Default -> loadImage(binding.imageBackground, R.color.none)
+			PianoLayout.Classic -> loadImage(
 				binding.imageBackground,
-				com.gambisoft.pianolibrary.R.mipmap.noel_background
+				com.gambisoft.pianolibrary.R.mipmap.classic_background
 			)
 
 			PianoLayout.Anime -> loadImage(
 				binding.imageBackground,
 				com.gambisoft.pianolibrary.R.mipmap.anime_background
+			)
+
+			PianoLayout.City -> loadImage(
+				binding.imageBackground,
+				com.gambisoft.pianolibrary.R.mipmap.city_background
+			)
+
+			PianoLayout.Nature -> loadImage(
+				binding.imageBackground,
+				com.gambisoft.pianolibrary.R.mipmap.nature_background
+			)
+
+			PianoLayout.Noel -> loadImage(
+				binding.imageBackground,
+				com.gambisoft.pianolibrary.R.mipmap.noel_background
 			)
 		}
 	}

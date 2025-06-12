@@ -22,7 +22,7 @@ class FavouriteActivity :
 	private lateinit var themeAdapter: ThemePianoAdapter
 	private val statePianoKey: StatePianoKeyManager
 		get() = StatePianoKeyManager(this)
-	private var layoutSelect = PianoLayout.Basic
+	private var layoutSelect = PianoLayout.Default
 	override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)
 
@@ -49,7 +49,7 @@ class FavouriteActivity :
 					super.onPageSelected(position)
 					when (position) {
 						0 -> {
-							layoutSelect = PianoLayout.Basic
+							layoutSelect = PianoLayout.Default
 							binding.tvThemeSelect.text = "Basic"
 						}
 
