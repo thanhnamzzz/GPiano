@@ -15,7 +15,7 @@ import com.gambisoft.pianolibrary.utils.LayoutKeyFunction
 
 class Piano(
 	private val context: Context,
-	private val layout: PianoLayout = PianoLayout.Basic,
+	private val layout: PianoLayout = PianoLayout.Default,
 	scale: Float,
 	private val scaleWidth: Float = 1f
 ) {

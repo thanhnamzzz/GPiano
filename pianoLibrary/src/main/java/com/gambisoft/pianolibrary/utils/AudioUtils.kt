@@ -20,16 +20,17 @@ import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
-import kotlinx.coroutines.cancel
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
 
 class AudioUtils(
 	private val context: Context,
 	private val loadAudioListener: OnLoadAudioListener?,
-	private val onAutoPlayListener: OnPianoAutoPlayListener?,
+	private var onAutoPlayListener: OnPianoAutoPlayListener?,
 	maxStream: Int
 ) : LoadAudioMessage {
 	private val service: ExecutorService = Executors.newCachedThreadPool()
@@ -110,7 +111,7 @@ class AudioUtils(
 		}
 	}
 
-	fun isLoadAudioComplete():Boolean {
+	fun isLoadAudioComplete(): Boolean {
 		return loadNum == Piano.PIANO_NUM
 	}
 
@@ -129,7 +130,6 @@ class AudioUtils(
 					sendStartMessage()
 					loadKeys(piano.whitePianoKeys, whiteKeyMusics, isWhiteKey = true)
 					loadKeys(piano.blackPianoKeys, blackKeyMusics, isWhiteKey = false)
-					cancel()
 				}
 			}
 		}
@@ -248,21 +248,27 @@ class AudioUtils(
 	private var isAutoPlaying = false
 	fun isAutoPlaying(): Boolean = isAutoPlaying
 
+	fun setListener(listener: OnPianoAutoPlayListener) {
+		this.onAutoPlayListener = listener
+	}
 	fun autoPlayOnlySound(autoPlayEntities: MutableList<AutoPlayEntity>) {
 		if (isAutoPlaying && autoPlayEntities.isEmpty() || pool == null) return
 		isAutoPlaying = true
 		autoPlayJob = CoroutineScope(Dispatchers.IO).launch(exceptionAutoPlay) {
-			onAutoPlayListener?.onPianoAutoPlayStart()
+			withContext(Dispatchers.Main){
+				onAutoPlayListener!!.onPianoAutoPlayStart()
+			}
 			autoPlayEntities.forEach { entity ->
 				if (!isActive) return@forEach
 				when (entity.type) {
 					PianoKeyType.BLACK -> playBlackKeyMusic(entity.group, entity.position)
 					PianoKeyType.WHITE -> playWhiteKeyMusic(entity.group, entity.position)
 				}
-//				delay(2 * entity.currentBreakTime.div(2L))
-//				delay(50)
+				delay(entity.currentBreakTime)
 			}
-			stopPlayOnlySound()
+			withContext(Dispatchers.Main) {
+				stopPlayOnlySound()
+			}
 		}
 	}
 
@@ -270,6 +276,6 @@ class AudioUtils(
 		autoPlayJob?.cancel()
 		autoPlayJob = null
 		isAutoPlaying = false
-		onAutoPlayListener?.onPianoAutoPlayEnd()
+		onAutoPlayListener!!.onPianoAutoPlayEnd()
 	}
 }

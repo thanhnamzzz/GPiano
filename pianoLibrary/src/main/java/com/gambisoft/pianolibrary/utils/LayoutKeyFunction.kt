@@ -13,9 +13,14 @@ object LayoutKeyFunction {
 		val pressed: Drawable?
 		val normal: Drawable?
 		when (layoutKey) {
-			PianoLayout.Basic -> {
+			PianoLayout.Default -> {
 				pressed = ContextCompat.getDrawable(context, R.drawable.white_key1_down)
 				normal = ContextCompat.getDrawable(context, R.drawable.white_key1_up)
+			}
+
+			PianoLayout.Classic -> {
+				pressed = ContextCompat.getDrawable(context, R.drawable.white_key3_down)
+				normal = ContextCompat.getDrawable(context, R.drawable.white_key3_up)
 			}
 
 			else -> {
@@ -35,9 +40,14 @@ object LayoutKeyFunction {
 		val pressed: Drawable?
 		val normal: Drawable?
 		when (layoutKey) {
-			PianoLayout.Basic -> {
+			PianoLayout.Default -> {
 				pressed = ContextCompat.getDrawable(context, R.drawable.black_key1_down)
 				normal = ContextCompat.getDrawable(context, R.drawable.black_key1_up)
+			}
+
+			PianoLayout.Classic -> {
+				pressed = ContextCompat.getDrawable(context, R.drawable.black_key3_down)
+				normal = ContextCompat.getDrawable(context, R.drawable.black_key3_up)
 			}
 
 			else -> {

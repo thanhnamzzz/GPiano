@@ -13,7 +13,6 @@ import android.os.Looper
 import android.os.Message
 import android.os.Parcelable
 import android.util.AttributeSet
-import android.util.DisplayMetrics
 import android.util.Log
 import android.view.MotionEvent
 import android.view.View
@@ -37,6 +36,9 @@ import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
 import java.util.concurrent.ConcurrentLinkedQueue
 import kotlin.math.min
+import androidx.core.content.withStyledAttributes
+import androidx.core.graphics.toColorInt
+import androidx.core.graphics.createBitmap
 
 class PianoView @JvmOverloads constructor(
 	private val context: Context,
@@ -110,10 +112,10 @@ class PianoView @JvmOverloads constructor(
 		handleAutoPlay(it)
 		true
 	}
-	private var layoutKey = PianoLayout.Basic
+	private var layoutKey = PianoLayout.Default
 	fun setLayoutKey(i: PianoLayout) {
 		layoutKey = i
-		Log.d("Namzzz", "PianoView: setLayoutKey layoutKey = $layoutKey")
+//		Log.d("Namzzz", "PianoView: setLayoutKey layoutKey = $layoutKey")
 		piano = null
 		requestLayout()
 	}
@@ -124,12 +126,12 @@ class PianoView @JvmOverloads constructor(
 
 	init {
 		attrs?.let {
-			val typedArray = context.obtainStyledAttributes(it, R.styleable.PianoView)
-			showKeyName = typedArray.getBoolean(R.styleable.PianoView_showKeyName, false)
-			val layoutType = typedArray.getInt(R.styleable.PianoView_layoutKey, 0)
-			layoutKey = PianoLayout.fromValue(layoutType)
-			scaleWidth = typedArray.getFloat(R.styleable.PianoView_scaleWidth, 1f)
-			typedArray.recycle()
+			context.withStyledAttributes(it, R.styleable.PianoView) {
+				showKeyName = getBoolean(R.styleable.PianoView_showKeyName, false)
+				val layoutType = getInt(R.styleable.PianoView_layoutKey, 0)
+				layoutKey = PianoLayout.fromValue(layoutType)
+				scaleWidth = getFloat(R.styleable.PianoView_scaleWidth, 1f)
+			}
 		}
 		paint.isAntiAlias = true
 		paint.style = Paint.Style.FILL
@@ -144,7 +146,6 @@ class PianoView @JvmOverloads constructor(
 	 * Khi gọi requestLayout nó sẽ vào onMeasure -> onLayout -> onDraw
 	 */
 	override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
-		Log.d("Namzzz", "PianoView: onMeasure")
 		val whiteKeyHeight = whiteKeyDrawable.intrinsicHeight
 		val width = MeasureSpec.getSize(widthMeasureSpec)
 		val heightMode = MeasureSpec.getMode(heightMeasureSpec)
@@ -177,12 +178,12 @@ class PianoView @JvmOverloads constructor(
 			}
 			utils ?: run {
 				utils = if (maxStream > 0) AudioUtils.getInstance(
-					getContext(),
+					context,
 					loadAudioListener,
 					autoPlayListener,
 					maxStream
 				)
-				else AudioUtils.getInstance(getContext(), loadAudioListener, autoPlayListener)
+				else AudioUtils.getInstance(context, loadAudioListener, autoPlayListener)
 				runCatching { utils!!.loadMusic(piano) }
 					.onFailure { Log.e("Namzzz", "PianoView: onDraw", it) }
 			}
@@ -195,7 +196,7 @@ class PianoView @JvmOverloads constructor(
 
 					/** Vẽ tên phím lên nút */
 					if (showKeyName) {
-						paint.color = Color.parseColor(pianoColors[i])
+						paint.color = pianoColors[i].toColorInt()
 						keyDrawable?.bounds?.let { r ->
 							val sideLength = (r.right - r.left) / (2 * scaleWidth)
 							val left = r.left + sideLength * scaleWidth / 2
@@ -208,7 +209,9 @@ class PianoView @JvmOverloads constructor(
 
 							paint.apply {
 								color =
-									if (layoutKey == PianoLayout.Basic) Color.BLACK else Color.WHITE
+									if (layoutKey == PianoLayout.Default ||
+										layoutKey == PianoLayout.Classic
+									) Color.BLACK else Color.WHITE
 								textSize = sideLength / 1.8f
 								textAlign = Paint.Align.CENTER
 								typeface = Typeface.DEFAULT_BOLD
@@ -250,17 +253,9 @@ class PianoView @JvmOverloads constructor(
 
 	private fun vectorToBitmap(vectorResId: Int): Bitmap {
 		val drawable =
-			AppCompatResources.getDrawable(context, vectorResId) ?: return Bitmap.createBitmap(
-				1,
-				1,
-				Bitmap.Config.ARGB_8888
-			)
+			AppCompatResources.getDrawable(context, vectorResId) ?: return createBitmap(1, 1)
 
-		val bitmap = Bitmap.createBitmap(
-			drawable.intrinsicWidth,
-			drawable.intrinsicHeight,
-			Bitmap.Config.ARGB_8888
-		)
+		val bitmap = createBitmap(drawable.intrinsicWidth, drawable.intrinsicHeight)
 		val canvas = Canvas(bitmap)
 
 		drawable.setBounds(0, 0, canvas.width, canvas.height)
@@ -479,17 +474,17 @@ class PianoView @JvmOverloads constructor(
 	val pianoWidth: Int
 		get() = piano?.pianoWith ?: run { 0 }
 
-	/**
-	 * 设置显示音名的矩形的颜色<br></br>
-	 * **注:一共9中颜色**
-	 *
-	 * @param pianoColors 颜色数组，长度为9
-	 */
-	fun setPianoColors(pianoColors: List<String>) {
+//	/**
+//	 * 设置显示音名的矩形的颜色<br></br>
+//	 * **注:一共9中颜色**
+//	 *
+//	 * @param pianoColors 颜色数组，长度为9
+//	 */
+//	fun setPianoColors(pianoColors: List<String>) {
 //		if (pianoColors.size == 9) {
 //			this.pianoColors = pianoColors
 //		}
-	}
+//	}
 
 	/**
 	 * 设置是否可点击
@@ -501,8 +496,8 @@ class PianoView @JvmOverloads constructor(
 	}
 
 	fun scroll(progress: Int) {
-		val x = (progress * (pianoWidth - layoutWidth) / 100f).toInt()
-			.coerceIn(0, pianoWidth - layoutWidth)
+		val maxScroll = (pianoWidth - layoutWidth).coerceAtLeast(0)
+		val x = (progress * maxScroll / 100f).toInt().coerceIn(0, maxScroll)
 		minRange = x
 		maxRange = x + layoutWidth
 		this.scrollTo(x, 0)
@@ -546,18 +541,6 @@ class PianoView @JvmOverloads constructor(
 	 */
 	fun setAutoPlayListener(autoPlayListener: OnPianoAutoPlayListener?) {
 		this.autoPlayListener = autoPlayListener
-	}
-
-	//-----私有方法
-	/**
-	 * 将dp装换成px
-	 *
-	 * @param dp dp值
-	 * @return px值
-	 */
-	private fun dpToPx(dp: Int): Int {
-		val displayMetrics = getContext().resources.displayMetrics
-		return Math.round(dp * (displayMetrics.xdpi / DisplayMetrics.DENSITY_DEFAULT))
 	}
 
 	/**
